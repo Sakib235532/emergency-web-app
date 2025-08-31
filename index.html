@@ -1,11 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emergency Hotline — Figma Spec (EN)</title>
+  <!-- Tailwind CSS + DaisyUI CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <style>
+    .btn-must{
+        background-color: #00a63e;
+        color: white;
+    }
+    .gradient-hero {
+      background: linear-gradient(135deg, rgba(12, 38, 23, 0.25) 0%, rgba(55, 255, 0, 0.25) 50%, rgba(16,185,129,0.25) 100%);
+    }
+  </style>
 </head>
 <body>
+    <!-- Navbar -->
+  <header class="navbar bg-base-100 shadow-sm sticky top-0 z-50">
+    <div class="flex-1 items-center gap-2 px-2">
+      <!-- Left: Website name & logo-->
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-xl bg-rose-500 grid place-items-center text-white text-lg">
+            <img src="image/logo.png" alt="">
+        </div>
+        <h1 class="font-bold text-lg sm:text-xl">Emergency <br> Service</h1>
+      </div>
+    </div>
+    <!-- Right: Heart icon, coin count, copy count -->
+    <div class="flex-none flex items-center gap-4 pr-3">
+      <div class="flex items-center gap-1">
+        
+        <span id="heartCount" class="badge badge-ghost">0</span>
+        <button  aria-label="Favorites" id="navbarHeartBtn" class="btn btn-ghost btn-sm px-2">
+          <!-- Heart Icon -->
+           <img src="image/heart.png" alt="" class="w-5 h-5"  >
+        </button>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <span class="text-sm opacity-70 hidden sm:inline">Coins</span>
+        <span id="coinCount" class="badge">100</span>
+          <img src="image/coin.png" alt="" class="w-5 h-5"  >
+      </div>
+
+      <div class="flex items-center gap-1">
+        <span class="text-sm opacity-70 hidden sm:inline">Copies</span>
+        <span id="copyCount" class="badge badge-secondary">0</span>
+
+      </div>
+    </div>
+  </header>
+   <!-- Hero Section -->
+  <section class="gradient-hero">
+    <div class="max-w-6xl mx-auto px-4 py-14 sm:py-20 text-center">
+      <!-- Logo  -->
+      <div class="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-base-100 shadow grid place-items-center">
+        <img src="image/logo.png" alt="">
+      </div>
+
+      <!-- Section Title  -->
+      <h2 class="text-3xl sm:text-4xl font-extrabold mt-6">জরুরি সেবা ডিরেক্টরি</h2>
+
+      <p class="mt-4 text-base sm:text-lg opacity-80">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</p>
+    </div>
+  </section>
     
+  <main class="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+
+    <!-- Cards:-->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <!-- Card 1: National Emergency Service -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/emergency.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">জাতীয় জরুরি সেবা</h4>
+              <p class="text-sm opacity-80">National Emergency</p>
+              <p class="mt-2 font-semibold">999</p>
+              <p class="badge badge-ghost">All</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2: Fire Service -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/police.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">পুলিশ</h4>
+              <p class="text-sm opacity-80">Police</p>
+              <p class="mt-2 font-semibold">999</p>
+              <p class="badge badge-ghost">পুলিশ</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 3: Ambulance -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            <!-- 💗 icon at left -->
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/ambulance.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">অ্যাম্বুলেন্স</h4>
+              <p class="text-sm opacity-80">Ambulance</p>
+              <p class="mt-2 font-semibold">999</p>
+              <p class="badge badge-ghost">স্বাস্থ্য</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 4: Police -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/fire-service.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">ফায়ার সার্ভিস</h4>
+              <p class="text-sm opacity-80">Fire Service</p>
+              <p class="mt-2 font-semibold">999</p>
+              <p class="badge badge-ghost">ফায়ার</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 5: bangladesh railway -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/Bangladesh-Railway.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">বাংলাদেশ রেলওয়ে</h4>
+              <p class="text-sm opacity-80">Bangladesh Railway</p>
+              <p class="mt-2 font-semibold">163</p>
+              <p class="badge badge-ghost">পরিবহন</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!-- Card 6:Brac  -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+           
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/emergency.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">দুদক</h4>
+              <p class="text-sm opacity-80">Anti-Corruption</p>
+              <p class="mt-2 font-semibold">106</p>
+              <p class="badge badge-ghost">সরকারি</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+       <!-- Card 7:women help  -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/emergency.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">নারী ও শিশু সহায়তা</h4>
+              <p class="text-sm opacity-80">Women & Child Helpline</p>
+              <p class="mt-2 font-semibold">109</p>
+              <p class="badge badge-ghost">সহায়তা</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <!--card 8: -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/brac.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">ব্র্যাক</h4>
+              <p class="text-sm opacity-80">Brac</p>
+              <p class="mt-2 font-semibold">16445</p>
+              <p class="badge badge-ghost">এনজিও</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+       <!-- Card 9:electricity  -->
+      <article class="card bg-base-100 shadow hover:shadow-lg transition">
+        <div class="card-body">
+          <div class="flex items-start gap-3">
+            <!-- 💗 icon at left -->
+            <button id="favBtn1" aria-label="Like" class="btn btn-ghost btn-xs px-2">
+              <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 21s-6.716-4.776-9.192-7.253a5.5 5.5 0 0 1 7.778-7.778L12 7.635l1.414-1.414a5.5 5.5 0 0 1 7.778 7.778C18.716 16.224 12 21 12 21z"/>
+              </svg>
+            </button>
+            <div class="flex-1">
+              <div class="flex items-center gap-2">
+                <img src="image/emergency.png" class="w-6 h-6" alt="Siren"/>
+              </div>
+              <h4 class="font-bold mt-2">বিদ্যুৎ বিভ্রাট</h4>
+              <p class="text-sm opacity-80">Electricity Outage</p>
+              <p class="mt-2 font-semibold">16216</p>
+              <p class="badge badge-ghost">বিদ্যুৎ</p>
+
+              <div class="card-actions justify-end mt-4">
+                <button id="copyBtn1" class="btn btn-outline btn-sm">
+                  <!-- Copy Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M8 16h8a2 2 0 002-2V6M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h10m-4 12v4a2 2 0 002 2h4a2 2 0 002-2v-4M8 16a2 2 0 002-2v-4" />
+                  </svg>
+                  Copy
+                </button>
+                <a href="tel:999" id="callBtn1" class="btn btn-must btn-sm">
+                  <!-- Phone Icon -->
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.05-.24 12.36 12.36 0 003.88.62 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h2.44a1 1 0 011 1 12.36 12.36 0 00.62 3.88 1 1 0 01-.25 1.05z"/>
+                  </svg>
+                  Call
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+
+
+  <!-- History Section -->
+  <section class="bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+      <div class="flex items-center justify-between mb-4">
+        <!-- History Title  -->
+        <h3 class="text-xl sm:text-2xl font-bold flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 8a1 1 0 0 1 1 1v3h3a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Zm0-6a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Z"/>
+          </svg>
+          Call History
+        </h3>
+        <!-- Clear History Button-->
+        <button id="clearHistoryBtn" class="btn btn-ghost btn-sm">Clear</button>
+      </div>
+      <!-- History List -->
+      <div id="historyList" class="space-y-3">
+      </div>
+    </div>
+  </section>
 </body>
 </html>
